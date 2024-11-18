@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fill Up</title>
+</head>
+<body>
+    <form action="php/fillUp.php" method="POST">
+        <label for="fname">First Name:</label>
+        <input type="text" id="fname" name="fname" required><br>
+    
+        <label for="lname">Last Name:</label>
+        <input type="text" id="lname" name="lname" required><br>
+    
+        <label for="mobilenumber">Mobile Number:</label>
+        <input type="text" id="mobilenumber" name="mobilenumber" required><br>
+    
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br>
+    
+        <label for="bodytemperature">Body Temperature:</label>
+        <input type="number" step="0.01" id="bodytemperature" name="bodytemperature" required><br>
+    
+        <label for="covid_diagnosed">Covid Diagnosed:</label>
+        <select id="covid_diagnosed" name="covid_diagnosed" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br>
+    
+        <label for="covid_vaccinated">Covid Vaccinated:</label>
+        <select id="covid_vaccinated" name="covid_vaccinated" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br>
+    
+        <label for="nationality">Nationality:</label>
+        <input type="text" id="nationality" name="nationality" required><br>
+    
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select><br>
+    
+        <button type="submit">Submit</button>
+    </form>
+    
+</body>
+</html>

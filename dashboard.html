@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="public/plugins/jquery/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <h1>Dashboard for Regular User</h1>
+    <button id="logoutBtn">Log Out</button>
+   
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: 'php/checksession.php', // The PHP script that checks if the user is logged in
+                type: 'GET',
+                success: function(response) {
+                    var data = JSON.parse(response); // Parse the JSON response
+                    if (data.isSuccess) {
+                        // If the user is an admin, redirect to the admin dashboard
+                        if (data.isAdmin) {
+                            window.location.href = "php/admindashboard.php"; // Redirect to admin dashboard
+                        } else {
+                            // Redirect to regular user dashboard
+                            window.location.href = "php/dashboard.php"; // Regular user dashboard
+                        }
+                    } else {
+                        alert(data.msg); // Show message if the user is not logged in or session expired
+                    }
+                }
+            });
+
+            // When the logout button is clicked
+            $("#logoutBtn").click(function() {
+                window.location.href = "php/logout.php";  // Redirect to logout.php to log out the user
+            });
+        });
+    </script>
+</body>
+</html>
